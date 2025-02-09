@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Композиты</title>
+    </head>
+    <body>
+        <h1>Предсказание Модуль упругости при растяжении, ГПа</h1>
+        <form method="post">
+            <p>
+                <label>Угол нашивки, град</label>
+                <input type ='number' name = 'ugol'>
+            </p>
+            <p>
+                <label>Шаг нашивки</label>
+                <input type ='number' name = 'shag'>
+            </p>
+            <p>
+                <label>Плотность нашивки</label>
+                <input type ='number' name = 'plotnostn'>
+            </p>
+            <p>
+                <label>Соотношение матрица-наполнитель</label>
+                <input type ='number' name = 'mat'>
+            </p>
+            <p>
+                <label>Плотность, кг/м3</label>
+                <input type ='number' name = 'plotnost'>
+            </p>
+            <p>
+                <label>модуль упругости, ГПа</label>
+                <input type ='number' name = 'modulupr'>
+            </p>
+            <p>
+                <label>Количество отвердителя, м.%</label>
+                <input type ='number' name = 'amount'>
+            </p>
+            <p>
+                <label>Содержание эпоксидных групп,%_2</label>
+                <input type ='number' name = 'epoks'>
+            </p>
+            <p>
+                <label>Температура вспышки, С_2</label>
+                <input type ='number' name = 'tepm'>
+            </p>
+            <p>
+                <label>Поверхностная плотность, г/м2</label>
+                <input type ='number' name = 'poverkhplotn'>
+            </p>
+            <p>
+                <label>Потребление смолы, г/м2</label>
+                <input type ='number' name = 'smol'>
+            </p>
+
+            <p>
+                <input type = 'submit'>
+            </p>       
+
+
+
+        </form>
+        {% if message %}
+        {{message}}
+        {% endif %}
+    </body>
+</html>
