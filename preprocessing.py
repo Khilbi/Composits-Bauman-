@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 
-def get_prediction(ugol, shag):
+def get_prediction(plotnostn):
     with open ('models/best_linearRegression.pkl','wb') as f:
         model = pickle.load(f)
 
