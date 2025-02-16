@@ -12,8 +12,8 @@ def get_prediction(plotnost, modulupr, amount, epoks, tepm, poverkhplotn, smol, 
     with open("models/scaler_y.pkl","rb") as f:
         scaler_y = pickle.load(f)   
 
-    params = np.array([[plotnost], [modulupr], [amount], [epoks], [tepm], [poverkhplotn], [smol], [shag], [plotnostn], [mat], [ugol]]) 
+    params = np.array([plotnost], [modulupr], [amount], [epoks], [tepm], [poverkhplotn], [smol], [shag], [plotnostn], [mat], [ugol]) 
     params = scaler_x.transform(params)  
-    y_pred = model.predict(params)  
+    y_pred = model.predict(params) 
 
     return scaler_y.inverse_transform([y_pred])
