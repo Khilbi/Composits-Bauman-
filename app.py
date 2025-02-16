@@ -1,26 +1,7 @@
 from flask import Flask, render_template,request
-import pickle
-import numpy as np
+from processing import get_prediction
 
 app = Flask(__name__)
-
-
-def get_prediction(plotnost, modulupr, amount, epoks, tepm, poverkhplotn, smol, shag, plotnostn, mat, ugol):
-
-    with open(r'models/best_linearRegression.pkl','rb') as f:
-        model = pickle.load(f)
-
-    with open(r'models/scaler_x.pkl','rb') as f:
-        scaler_x = pickle.load(f)
-
-    with open(r'models/scaler_y.pkl','rb') as f:
-        scaler_y = pickle.load(f)   
-
-    params = np.array([plotnost], [modulupr], [amount], [epoks], [tepm], [poverkhplotn], [smol], [shag], [plotnostn], [mat], [ugol]) 
-    params = scaler_x.transform(params)  
-    y_pred = model.predict(params)  
-
-    return scaler_y.inverse_transform([y_pred])
 
 @app.route("/", methods=["get", "post"])  # 127.0.0.1:5000/
 def index():
@@ -37,12 +18,10 @@ def index():
         plotnostn = request.form.get("plotnostn")
         mat = request.form.get("mat")
         ugol = request.form.get("ugol")
-
         
-        print("prepred")
         modul_uprugosti = get_prediction(float(plotnost),float(modulupr),float(amount),
                                          float(epoks),float(tepm),float(poverkhplotn),
-                                         float(smol),float(shag ),float(plotnostn),
+                                         float(smol),float(shag),float(plotnostn),
                                          float(mat),float(ugol))
         message = f"Модуль упругости при растяжении при заданных параметрах составит {modul_uprugosti} ГПа"
 
@@ -51,4 +30,5 @@ def index():
 
 if __name__ == "__main__":
     app.run()
+
 
