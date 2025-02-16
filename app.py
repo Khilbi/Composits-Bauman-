@@ -1,8 +1,7 @@
 from flask import Flask, render_template,request
-from preprocessing import get_prediction
-
+import pickle
+import numpy as np
 app = Flask(__name__)
-
 
 @app.route("/", methods=["get", "post"])  # 127.0.0.1:5000/
 def index():
@@ -21,16 +20,15 @@ def index():
         ugol = request.form.get("ugol")
 
         
-        
+        print("prepred")
         modul_uprugosti = get_prediction(float(plotnost),float(modulupr),float(amount),
                                          float(epoks),float(tepm),float(poverkhplotn),
                                          float(smol),float(shag ),float(plotnostn),
                                          float(mat),float(ugol))
-        message = f"Модуль упругости при растяжении при заданных параметрах составит {modul_uprugosti} ГПа"
+        message = f"Модуль упругости при растяжении при заданных параметрах составит {modul_uprugosti} ГПа. "
 
     return render_template("index.html", message=message)
 
 
 if __name__ == "__main__":
     app.run()
-
