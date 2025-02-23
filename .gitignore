@@ -1,2 +1,11 @@
-/.venv/
-/.__pycache__
+*
+!requirements.txt
+!app.py
+!processing.py
+!README.md
+!Composites.ipynb
+!DS
+!scaler_x.pkl
+!scaler_y.pkl
+!best_linearRegression.pkl
+!templates

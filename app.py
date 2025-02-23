@@ -26,7 +26,7 @@ def index():
                                          float(smol),float(shag),float(plotnostn),
                                          float(mat),float(ugol))
     
-        message = f"Модуль упругости при растяжении (ГПа) и Прочность при растяжении (МПа) при заданных параметрах составит {modul_uprugosti}"
+        message = f"Модуль упругости (ГПа) и Прочность при растяжении (МПа) при заданных параметрах составит {modul_uprugosti}"
 
     return render_template("index.html", message=message)
 
