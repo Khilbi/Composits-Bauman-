@@ -1,9 +1,6 @@
-import flask
 from flask import Flask, render_template,request
 from processing import get_prediction
-import sklearn
-from sklearn import linear_model
-from sklearn.linear_model import LinearRegression
+
 
 app = Flask(__name__)
 
